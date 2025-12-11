@@ -15,3 +15,14 @@ def sample1(request):
     q2=request.GET.get("city")
     return HttpResponse(f"{q1} came from {q2}")
 
+
+def StudentsByCity(request):
+    students_data=[{'name':'durgaprasad','city':'hyd'},{'name':'sai','city':'hyd'},{'name':'uma','city':'bnglr'},{'name':'kiran','city':'bnglr'}]
+    filteredStudents=[]
+    city=request.GET.get("city","hyd")
+    for student in students_data:
+        if student["city"]==city:
+            filteredStudents.append(student)
+            
+    return JsonResponse({"status":"success","data":filteredStudents})
+
