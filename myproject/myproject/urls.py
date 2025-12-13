@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from basic.views import home,about,contact,service,sample1,StudentsByCity
+from basic.views import home,about,contact,service,sample1,StudentsByCity,arraySlicing
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home,name='home'),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('contact/',contact,name='contact'),
     path('service/',service,name='service'),
     path('sample1/',sample1),
-    path('student1/',StudentsByCity)
+    path('student1/',StudentsByCity),
+    path('arrayslicing/',arraySlicing)
 ]

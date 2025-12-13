@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
+import math
 
 # Create your views here.
 def home(request):
@@ -25,4 +26,14 @@ def StudentsByCity(request):
             filteredStudents.append(student)
             
     return JsonResponse({"status":"success","data":filteredStudents})
+
+
+def arraySlicing(request):
+    data=['apple','banana','carrot','grapes','watermelon','kiwi','pineapple','custard-apple','strawberry','blueberry','dragonfruit']
+    page=int(request.GET.get('page'))
+    limit=int(request.GET.get('limit'))
+    start=(page-1)*limit
+    end=page*limit
+    output=data[start:end] 
+    return JsonResponse({"data":output})
 
