@@ -30,8 +30,8 @@ def StudentsByCity(request):
 
 def arraySlicing(request):
     data=['apple','banana','carrot','grapes','watermelon','kiwi','pineapple','custard-apple','strawberry','blueberry','dragonfruit']
-    page=int(request.GET.get('page'))
-    limit=int(request.GET.get('limit'))
+    page=int(request.GET.get('page',1))
+    limit=int(request.GET.get('limit',3))
     start=(page-1)*limit
     end=page*limit
     output=data[start:end] 
